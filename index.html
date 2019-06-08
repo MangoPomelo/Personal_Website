@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工程180605 丶芒果搜</title>
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link href="./style/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./style/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./style/css/mangoSearch.css">
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!-- 搜索器 -->
+  <div class="header">
+    <div class="container item-one">
+      <div class="btn-group">
+        <button type="button" class="btn btn-lg" id="bili">Bilibili</button>
+        <button type="button" class="btn btn-lg" id="age">AgeFans</button>
+        <button type="button" class="btn btn-lg" id="dmzj">Dmzj</button>
+        <button type="button" class="btn btn-lg" id="pixiv">Pixiv</button>
+      </div>
+      <div class="search">
+        <div class="search-group">
+          <input type="search" class="search-text" id="search-text">
+          <span data-toggle="modal" data-target="#img-search" id="img-search-btn">
+            <i class="fa fa-lg fa-photo"></i>
+          </span>
+          <button type="submit" class="search-button btn" id="search-button"><i class="fa fa-lg fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 图片搜索弹出框 -->
+  <div class="modal fade" id="img-search" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title">
+            图片搜索
+          </h4>
+        </div>
+        <div class="modal-body">
+          <center id="img-search-msg"></center>
+          <form action="http://saucenao.com/search.php" method="post" enctype="multipart/form-data">
+            <center style="margin-top:10px;">
+            <label class="btn">
+              点击上传图片至saucenao.com并搜索
+              <input type="file" name="file" id="saucenao" style="display: none">
+            </label>
+            <input type="submit" value="submit" id="saucenaosubmit" style="display: none;">
+            </center>
+            <div id="advanced" style="display: none;">
+            <input type="TEXT" name="frame" value="1" size="5">
+            <select name="hide" size="1">
+              <option selected="selected" value="0">None</option>
+            </select>
+            <select name="database" size="1">
+              <option selected="selected" value="999">All Databases</option>
+            </select>
+            </div>
+          </form>
+          <form method="post" action="https://www.tineye.com/search" enctype="multipart/form-data">
+            <center style="margin-top:10px;">
+            <label class="btn">点击上传图片至tineye.com并搜索（需VPN）<input id="tineye" name="image" type="file" style="display: none" id="tineye">
+            </label>
+            <input type="submit" value="submit" id="tineyesubmit" style="display: none;">
+            </center>
+          </form>
+          <form action="https://iqdb.org/" method="post" enctype="multipart/form-data">
+            <center style="margin-top:10px;">
+            <label class="btn">点击上传图片至iqdb.org并搜索
+              <input type="file" name="file" id="iqdb" style="display: none">
+            </label>
+            <input type="submit" value="submit" id="iqdbsubmit" style="display: none;">
+            </center>
+            <input type="hidden" name="MAX_FILE_SIZE" value="8388608">
+            <div style="display: none;">
+              <input type="checkbox" name="service[]" value="1" checked="">   
+              <input type="checkbox" name="service[]" value="2" checked="">
+              <input type="checkbox" name="service[]" value="3" checked="">
+              <input type="checkbox" name="service[]" value="4" checked="">
+              <input type="checkbox" name="service[]" value="5" checked="">
+              <input type="checkbox" name="service[]" value="6" checked=""> 
+              <input type="checkbox" name="service[]" value="10" checked=""> 
+              <input type="checkbox" name="service[]" value="11" checked="">
+              <input type="checkbox" name="service[]" value="13" checked=""> 
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 导航块 -->
+  <div class="container item-one">
+    <div class="info">
+      <p>(｡･ω･)ﾉ 导航区</p>
+    </div>
+    <div class="navi">
+      <div id="navi-show"> 
+      </div>
+    </div>
+  </div>
+  <!-- 新番表 -->
+  <div class="container item-one">
+    <div class="info">
+      <p>⸜(* ॑∇ ॑* )⸝ 新番表</p>
+    </div>
+    <div class="bangumi-box">
+      <ul id="nav-tabs" class="nav nav-tabs">
+        <li class="active"><a href="#upm" data-toggle="tab">月更</a></li>
+        <li><a href="#sun" data-toggle="tab">周日</a></li>
+        <li><a href="#mon" data-toggle="tab">周一</a></li>
+        <li><a href="#tue" data-toggle="tab">周二</a></li>
+        <li><a href="#wed" data-toggle="tab">周三</a></li>
+        <li><a href="#thu" data-toggle="tab">周四</a></li>
+        <li><a href="#fri" data-toggle="tab">周五</a></li>
+        <li><a href="#sat" data-toggle="tab">周六</a></li>
+      </ul>
+      <div id="bangumi-box-tab" class="tab-content">
+        <div class="tab-pane fade in active" id="upm">
+
+        </div>
+        <div class="tab-pane fade" id="sun">
+
+        </div>
+        <div class="tab-pane fade" id="mon">
+
+        </div>
+        <div class="tab-pane fade" id="tue">
+
+        </div>
+        <div class="tab-pane fade" id="wed">
+
+        </div>
+        <div class="tab-pane fade" id="thu">
+
+        </div>
+        <div class="tab-pane fade" id="fri">
+
+        </div>
+        <div class="tab-pane fade" id="sat">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 文件池 -->
+  <div class="container item-one pool">
+    <div class="info">
+      <p>(`・ω・´) 文件池</p>
+    </div>
+    <div class="pool-box">
+      <div class="pool-upload">
+        <button class="pool-upload-btn" onclick="file.click()"><input type="file" name="file" id="file" style="display:none"><p>上传文件</p></button>
+      </div>
+      <div class="pool-files">
+        
+      </div>
+    </div>
+  </div>
+  <!-- 留言板 -->
+  <div class="container item-one chat">
+    <div class="info">
+      <p>ヾ(◍°∇°◍)ﾉﾞ 留言板</p>
+    </div>
+    <div class="page_selector" id="page_selector">
+      <span>共<span id="totalPage"></span>页</span><br>
+      <span class="page_span" id="page_span"></span>
+    </div>
+    <div class="chat-box">
+      <div class="chat-box-input">
+        <textarea class="chat-box-textarea" id="chat-box-textarea" cols="80" rows="3"></textarea>
+        <button class="chat-box-btn" id="chat-box-btn">发表留言</button>
+      </div>
+      <div id="chat-box-show">
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="./content/js/utils.js"></script>
+  <script type="text/javascript" src="./style/js/check_empty.js"></script>
+  <script type="text/javascript" src="./content/js/mangoSearch.js"></script>
+  <script type="text/javascript" src="./content/js/navi_ajax.js"></script>
+  <script type="text/javascript" src="./content/js/bangumi_ajax.js"></script>
+  <script type="text/javascript" src="./content/js/good_ajax.js"></script>
+  <script type="text/javascript" src="./content/js/chat_ajax.js"></script>
+  <script type="text/javascript" src="./content/js/pool_ajax.js"></script>
+</body>
+</html>
