@@ -13,8 +13,8 @@
 			"href":"http://www.dilidili.name",
 			"imgsrc":"./images/dilidili.png"
 		},{
-			"name":"Pixiv - 特辑",
-			"href":"https://www.pixiv.net/showcase/",
+			"name":"Pixiv",
+			"href":"https://www.pixiv.net",
 			"imgsrc":"./images/pixiv.png"
 		},{
 			"name":"kirikiri动画",
@@ -29,9 +29,9 @@
 			"href":"https://www.dmzj.com",
 			"imgsrc":"./images/dmzj.png"
 		},{
-          	"name":"イリア",
-          	"href":"https://illyasviel.me",
-          	"imgsrc":"./images/illyasviel.png"
+          	"name":"Pixivision",
+          	"href":"https://www.pixivision.net/zh/",
+          	"imgsrc":"./images/pixivision.png"
         },{
           	"name":"AGE动漫",
           	"href":"http://donghua.agefans.com",
