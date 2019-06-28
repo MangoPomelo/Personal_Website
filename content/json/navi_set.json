@@ -17,9 +17,17 @@
 			"href":"https://www.pixiv.net",
 			"imgsrc":"./images/pixiv.png"
 		},{
-			"name":"kirikiri动画",
-			"href":"http://www.kirikiri.live",
-			"imgsrc":"./images/kirikiri.png"
+			"name":"哔咔萌动漫",
+			"href":"http://www.bika.moe/",
+			"imgsrc":"./images/bika.png"
+		},{
+			"name":"奇米奇米动漫",
+			"href":"http://www.qimiqimi.me/",
+			"imgsrc":"./images/qimiqimi.jpg"
+		},{
+			"name":"动漫岛",
+			"href":"http://www.dmd8.com/",
+			"imgsrc":"./images/dmd8.png"
 		},{
 			"name":"CALIBUR",
 			"href":"https://www.calibur.tv/bangumi/news",
