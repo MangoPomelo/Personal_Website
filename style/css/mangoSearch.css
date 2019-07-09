@@ -178,6 +178,7 @@ button{
 	background-color: #f4f5f7;
     border: 1px solid #e5e9ef;
     outline: none;
+    resize: none;
     color: #555;
 }
 
