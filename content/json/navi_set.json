@@ -21,7 +21,7 @@
 			"href":"http://www.bika.moe/",
 			"imgsrc":"./images/bika.png"
 		},{
-			"name":"奇米奇米动漫",
+			"name":"奇米动漫",
 			"href":"http://www.qimiqimi.me/",
 			"imgsrc":"./images/qimiqimi.jpg"
 		},{
@@ -30,7 +30,7 @@
 			"imgsrc":"./images/dmd8.png"
 		},{
 			"name":"CALIBUR",
-			"href":"https://www.calibur.tv/bangumi/news",
+			"href":"https://www.calibur.tv",
 			"imgsrc":"./images/calibur.png"
 		},{
 			"name":"动漫之家",
@@ -56,6 +56,14 @@
           	"name":"萌娘资源站",
           	"href":"http://moe.005.tv/moeimg/tb/",
           	"imgsrc":"./images/moe005.png"
+        },{
+          	"name":"兜兜动漫网",
+          	"href":"https://www.doudoudm.site",
+          	"imgsrc":"./images/default.jpg"
+        },{
+          	"name":"番组计划",
+          	"href":"http://bangumi.tv",
+          	"imgsrc":"./images/bangumi.jpg"
         }
 	]
 }
